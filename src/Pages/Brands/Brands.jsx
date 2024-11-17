@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 const Brands = () => {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 mb-10 mt-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 mb-10 mt-5 pt-10">
             <Helmet>
                 <title>Brands | HMS </title>
             </Helmet>
