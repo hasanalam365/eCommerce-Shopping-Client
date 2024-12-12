@@ -1,12 +1,24 @@
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Helmet } from "react-helmet-async";
+import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const UpdateProduct = () => {
 
     const axiosSecure = useAxiosSecure()
 
+  const { data:products=[] } = useQuery({
+        queryKey: ['all-products-in'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/products`)
+            return res.data
+        },
+       
+    })
+
+ console.log(products)
     const handleStockUpdate = async (e) => {
         e.preventDefault()
         const form = e.target;
@@ -50,6 +62,8 @@ const UpdateProduct = () => {
 
 
     }
+
+    
 
     return (
         // <div className="flex items-center justify-center mt-10 ">
@@ -106,7 +120,7 @@ const UpdateProduct = () => {
                      <div className="join mr-5">
                     <div>
 
-                        <input  className="input input-bordered join-item " placeholder="Search by email" />
+                        <input  className="input input-bordered join-item " placeholder="Search by product Id" />
 
                     </div>
 
@@ -124,38 +138,49 @@ const UpdateProduct = () => {
         <th>Product Title</th>
         <th>Price</th>
         <th>Stock</th>
-        <th>Updated</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
+                        {
+                            products.map((product, idx) => <tr key={idx}>
+                                <td>{idx+1}</td>
        
         <td>
           <div className="flex items-center gap-3">
             <div className="avatar">
               <div className="mask mask-squircle h-12 w-12">
                 <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                  src={product.
+imgUrl
+}
                   alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
-            <div>
-              <div className="font-bold">Hart Hagerty</div>
-              <div className="text-sm opacity-50">United States</div>
-            </div>
+           
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+        {product.
+title
+}
+         
         </td>
-        <td>Purple</td>
+                                <td>{product.
+price
+}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          {product.
+stock}
         </th>
-      </tr>
+        <th>
+                                    <Link>
+                                        <FaEdit className="text-lg text-green-600 hover:scale-110"/>
+                                    </Link>
+        </th>
+      </tr>)
+   }
+      
      
      
     </tbody>
