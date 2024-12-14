@@ -187,6 +187,7 @@ stock}
    
   </table>
 </div>
+<p>table</p>
         </div>
     );
 };
