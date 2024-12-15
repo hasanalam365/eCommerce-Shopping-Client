@@ -4,10 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const UpdateProduct = () => {
 
-    const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure()
+  const [clickBtn,setClickBtn]=useState(1)
 
   const { data:products=[] } = useQuery({
         queryKey: ['all-products-in'],
@@ -18,7 +20,7 @@ const UpdateProduct = () => {
        
     })
 
- console.log(products)
+
     const handleStockUpdate = async (e) => {
         e.preventDefault()
         const form = e.target;
@@ -63,7 +65,11 @@ const UpdateProduct = () => {
 
     }
 
-    
+  const buttons = [1, 2, 3, 4, 5, 6]
+  
+  const handleButton = (btn) => {
+    setClickBtn(btn)
+  }
 
     return (
         // <div className="flex items-center justify-center mt-10 ">
@@ -143,7 +149,7 @@ const UpdateProduct = () => {
     </thead>
     <tbody>
                         {
-                            products.map((product, idx) => <tr key={idx}>
+                            products.slice(0,5).map((product, idx) => <tr key={idx}>
                                 <td>{idx+1}</td>
        
         <td>
@@ -186,7 +192,14 @@ stock}
     </tbody>
    
   </table>
-</div>
+        </div>
+        <div className="text-center mt-5 mb-5">
+            {
+            buttons.map(btn => <button key={btn}
+            onClick={()=>handleButton(btn)}
+              className={`btn  ml-2 ${btn== clickBtn && 'btn-secondary'}`}>{btn}</button>)
+        }
+      </div>
 
         </div>
     );
