@@ -116,7 +116,7 @@ const UpdateProduct = () => {
             <div>
                 <h4 className="text text-center mt-8 text-lg font-bold border-dashed border-2   mb-2 p-2 bg-orange-600 text-white">Inventory System</h4>
                 <div className="flex items-center justify-between">
-                    <h4>Total Products:</h4>
+            <h4 className="text-lg font-semibold">Total Products: { products.length}</h4>
                      <div className="join mr-5">
                     <div>
 
@@ -187,7 +187,7 @@ stock}
    
   </table>
 </div>
-<p>table</p>
+
         </div>
     );
 };
