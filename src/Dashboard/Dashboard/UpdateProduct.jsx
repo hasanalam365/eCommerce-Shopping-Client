@@ -65,6 +65,13 @@ const UpdateProduct = () => {
 
     }
 
+  
+
+  // const checkB = products?.length / 6
+// const buttons=Math.ceil(checkB)
+// console.log(typeof finalBtn)
+
+  
   const buttons = [1, 2, 3, 4, 5, 6]
   
   const handleButton = (btn) => {
