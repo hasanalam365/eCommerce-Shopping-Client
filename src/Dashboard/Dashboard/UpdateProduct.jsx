@@ -71,7 +71,7 @@ const UpdateProduct = () => {
     <thead>
       <tr>
         
-        <th>Nasao</th>
+        <th>Nasaao</th>
         <th>Image</th>
         <th>Product Title</th>
         <th>Price</th>
