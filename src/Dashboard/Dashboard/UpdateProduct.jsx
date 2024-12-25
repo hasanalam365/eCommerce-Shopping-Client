@@ -73,6 +73,7 @@ const UpdateProduct = () => {
         
         <th>No.</th>
         <th>Image</th>
+        <th>Product Id</th>
         <th>Product Title</th>
         <th>Price</th>
         <th>Stock</th>
@@ -92,6 +93,7 @@ const UpdateProduct = () => {
                     </div>
                   </div>
                 </td>
+                <td>{product.productId}</td>
                 <td>{product.title}</td>
                 <td>{product.price}</td>
                 <th>{product.stock}</th>
