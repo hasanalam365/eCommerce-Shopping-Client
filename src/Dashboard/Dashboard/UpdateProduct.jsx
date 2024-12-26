@@ -98,7 +98,7 @@ const UpdateProduct = () => {
                 <td>{product.price}</td>
                 <th>{product.stock}</th>
                 <th>
-                  <Link className="tooltip  tooltip-top" data-tip="edit">
+                  <Link to={`product/update/${product._id}`} className="tooltip  tooltip-top" data-tip="edit">
                     <FaEdit className="text-lg text-green-600 hover:scale-110" />
                   </Link>
                 </th>
