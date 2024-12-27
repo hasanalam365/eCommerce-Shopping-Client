@@ -30,6 +30,7 @@ import Category from "../Components/Category";
 import Blogs from "../Pages/Blogs/Blogs";
 import ErrorComponent from "../Components/ErrorComponent";
 import CreateBlog from "../Dashboard/AdminDashboard.jsx/CreateBlog";
+import ProductUpdate from "../Dashboard/Dashboard/ProductUpdate";
 // import PersonaLinfo from "../Dashboard/UserDashboard/Profile";
 
 
@@ -176,6 +177,12 @@ const router = createBrowserRouter([
                 path: '/dashboard/add-blog',
                 element: <AdminRoute>
                   <CreateBlog></CreateBlog>
+                </AdminRoute>
+            },
+            {
+                path: '/dashboard/product/update/:id',
+                element: <AdminRoute>
+                <ProductUpdate></ProductUpdate>
                 </AdminRoute>
             },
 
