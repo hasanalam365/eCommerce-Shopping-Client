@@ -176,14 +176,15 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/add-blog',
                 element: <AdminRoute>
-                  <CreateBlog></CreateBlog>
+                    <CreateBlog></CreateBlog>
                 </AdminRoute>
             },
             {
                 path: '/dashboard/product/update/:id',
                 element: <AdminRoute>
-                <ProductUpdate></ProductUpdate>
-                </AdminRoute>
+                    <ProductUpdate></ProductUpdate>
+                </AdminRoute>,
+                
             },
 
         ]

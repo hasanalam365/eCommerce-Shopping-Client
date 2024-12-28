@@ -14,7 +14,7 @@ const UpdateProduct = () => {
 
 
   const { data:products=[] } = useQuery({
-        queryKey: ['all-products-in'],
+        queryKey: ['all-products-inventory'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/products`)
             return res.data
