@@ -32,13 +32,6 @@ const UpdateProduct = () => {
   const paginationProducts = products.slice((currentPage - 1) * itemPerPage, currentPage * itemPerPage
 )
 
-
-   
-
-  
-
-
-
   
   // const buttons = [1, 2, 3, 4, 5, 6]
   
@@ -98,7 +91,7 @@ const UpdateProduct = () => {
                 <td>{product.price}</td>
                 <th>{product.stock}</th>
                 <th>
-                  <Link to={`dashboard/product/update/${product._id}`} className="tooltip  tooltip-top" data-tip="edit">
+                  <Link to={`/dashboard/product-update/${product._id}`} className="tooltip  tooltip-top" data-tip="edit">
                     <FaEdit className="text-lg text-green-600 hover:scale-110" />
                   </Link>
                 </th>

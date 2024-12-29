@@ -180,10 +180,14 @@ const router = createBrowserRouter([
                 </AdminRoute>
             },
             {
-                path: '/dashboard/product/update/:id',
+                path: '/dashboard/product-update/:id',
                 element: <AdminRoute>
                     <ProductUpdate></ProductUpdate>
                 </AdminRoute>,
+                loader: ({ params }) => {
+                    const apiUrl = import.meta.env.VITE_API_URL;
+                    return fetch(`${apiUrl}/product-update/${params.id}`);
+                }
                 
             },
 
