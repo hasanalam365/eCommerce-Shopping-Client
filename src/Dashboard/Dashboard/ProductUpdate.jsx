@@ -3,6 +3,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import { useLoaderData } from 'react-router-dom';
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOST_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -12,6 +13,10 @@ const ProductUpdate = () => {
 
      const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
+
+    const productData=useLoaderData()
+
+console.log(productData)
 
      const handleAddProduct = async (e) => {
            e.preventDefault()
@@ -62,12 +67,14 @@ const ProductUpdate = () => {
        
                            <div className="col-span-3 sm:col-span-3">
                                <label htmlFor="title" className="font-medium">Title</label>
-                               <input id="title" name="title" type="text"
+                        <input id="title" name="title" type="text"
+                            defaultValue={productData?.title}
                                    placeholder="title" className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                            </div>
                            <div className="col-span-3 sm:col-span-3 flex flex-col">
                                <label htmlFor="category" className="font-medium">Category</label>
-                               <select
+                        <select
+                             defaultValue={productData?.category}
                                    className="select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full "
                                   
                                >
@@ -89,7 +96,8 @@ const ProductUpdate = () => {
                            </div>
                            <div className="col-span-3 sm:col-span-3">
                                <label htmlFor="rating" className="font-medium">Rating</label>
-                               <input id="rating" name="rating" type="number"
+                        <input id="rating" name="rating" type="number"
+                             defaultValue={productData?.rating}
                                    placeholder="rating" className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                            </div>
                            <div className="col-span-3 sm:col-span-3 ">
@@ -108,12 +116,14 @@ const ProductUpdate = () => {
        
                            <div className="col-span-3 sm:col-span-3">
                                <label htmlFor="stock" className="font-medium">Stock</label>
-                               <input id="stock" name="stock" type="number"
+                        <input id="stock" name="stock" type="number"
+                             defaultValue={productData?.stock}
                                    placeholder="stock" className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                            </div>
                            <div className="col-span-3 sm:col-span-3">
                                <label htmlFor="price" className="font-medium">Price</label>
-                               <input id="price" name="price" type="number"
+                        <input id="price" name="price" type="number"
+                             defaultValue={productData?.price}
                                    placeholder="price" className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent " />
                            </div>
        

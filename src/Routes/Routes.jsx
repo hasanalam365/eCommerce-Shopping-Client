@@ -186,7 +186,7 @@ const router = createBrowserRouter([
                 </AdminRoute>,
                 loader: ({ params }) => {
                     const apiUrl = import.meta.env.VITE_API_URL;
-                    return fetch(`${apiUrl}/product-update/${params.id}`);
+                    return fetch(`${apiUrl}/product/${params.id}`);
                 }
                 
             },
