@@ -103,11 +103,10 @@ console.log(productData)
                            <div className="col-span-3 sm:col-span-3 ">
                                <label htmlFor="features" className="font-medium">Features</label>
                                <div className="flex">
-                                   {/* <input id="features" name="features" type="text"
-                                       value={currentFeatures}
-                                       onChange={(e) => setCurrentFeatures(e.target.value)}
+                                   <input id="features" name="features" type="text"
+                                      
                                        placeholder="Add some Features" className="w-3/4 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                                   <button type="button" onClick={handleAddFeature} className="ml-2 p-2 bg-blue-500 text-white rounded-md w-1/4">Add</button> */}
+                                   <button type="button"className="ml-2 p-2 bg-blue-500 text-white rounded-md w-1/4">Add</button>
                                </div>
        
                            </div>
