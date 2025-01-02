@@ -56,7 +56,7 @@ console.log(productData)
     return (
         <div>
                    <Helmet>
-                       <title>Updated Product | Admin | HMS </title>
+                       <title>Updated Product | Admin  </title>
                    </Helmet>
                    <form onSubmit={handleAddProduct}>
                        <div className="text-center mb-5">
