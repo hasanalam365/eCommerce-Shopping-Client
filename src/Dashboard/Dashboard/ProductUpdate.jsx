@@ -41,7 +41,7 @@ console.log(productData)
    
                const addProduct = await axiosSecure.post('/add-product', productData)
                if (addProduct.data.modifiedCount === 1) {
-                   toast('product added successfully')
+                   toast('product updated successfully')
                    form.reset();
                   
                }
