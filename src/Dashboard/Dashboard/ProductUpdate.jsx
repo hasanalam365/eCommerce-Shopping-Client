@@ -18,7 +18,7 @@ const ProductUpdate = () => {
 
 console.log(productData)
 
-     const handleAddProduct = async (e) => {
+     const handleUpdateProduct = async (e) => {
            e.preventDefault()
            const form = e.target;
            const title = form.title.value;
@@ -58,7 +58,7 @@ console.log(productData)
                    <Helmet>
                        <title>Updated Product | Admin  </title>
                    </Helmet>
-                   <form onSubmit={handleAddProduct}>
+                   <form onSubmit={handleUpdateProduct}>
                        <div className="text-center mb-5">
                            <h4 className="text-3xl font-semibold">Update Product</h4>
                        </div>
