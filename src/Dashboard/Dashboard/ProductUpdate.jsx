@@ -60,7 +60,7 @@ console.log(productData)
                    </Helmet>
                    <form onSubmit={handleUpdateProduct}>
                        <div className="text-center mb-5">
-                           <h4 className="text-3xl font-semibold">Update Product</h4>
+                           <h4 className="text-3xl font-semibold">Update Product </h4>
                        </div>
        
                        <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 bg-gray-200 p-4">
