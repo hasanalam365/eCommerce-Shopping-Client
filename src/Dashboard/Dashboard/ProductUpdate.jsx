@@ -23,7 +23,7 @@ const ProductUpdate = () => {
         setImgPrev(photo.name)
 
     }
-console.log(productData)
+
 
      const handleUpdateProduct = async (e) => {
            e.preventDefault()
