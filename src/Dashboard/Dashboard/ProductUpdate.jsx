@@ -13,6 +13,7 @@ const ProductUpdate = () => {
 
      const axiosSecure = useAxiosSecure()
     const axiosPublic = useAxiosPublic()
+    const [selectedCategory, setSelectedCategory] = useState('')
 
     const productData = useLoaderData()
      const [imgPrev, setImgPrev] = useState('')
@@ -23,13 +24,15 @@ const ProductUpdate = () => {
         setImgPrev(photo.name)
 
     }
+// console.log(productData)
 
-
+   
+    
      const handleUpdateProduct = async (e) => {
            e.preventDefault()
            const form = e.target;
            const title = form.title.value;
-        //    const category = selectedCategory
+          
            const rating = form.rating.value;
         //    const features = feature;
            const stock = form.stock.value;
@@ -37,29 +40,33 @@ const ProductUpdate = () => {
            const description = form.description.value;
            const photo = form.photo.files[0];
    
-           try {
-               const formData = new FormData();
-               formData.append('image', photo);
-               const res = await axiosPublic.post(image_hosting_api, formData, {
-                   headers: { 'Content-Type': 'multipart/form-data' }
-               });
-               const imgUrl = res.data.data.display_url;
-               const productData = { title, rating, stock, price, description, imgUrl }
+        //    try {
+        //        const formData = new FormData();
+        //        formData.append('image', photo);
+        //        const res = await axiosPublic.post(image_hosting_api, formData, {
+        //            headers: { 'Content-Type': 'multipart/form-data' }
+        //        });
+        //        const imgUrl = res.data.data.display_url;
+        //        const productData = { title, rating, stock, price, description, imgUrl }
    
-               const addProduct = await axiosSecure.post('/add-product', productData)
-               if (addProduct.data.modifiedCount === 1) {
-                   toast('product updated successfully')
+        //        const addProduct = await axiosSecure.post('/add-product', productData)
+        //        if (addProduct.data.modifiedCount === 1) {
+        //            toast('product updated successfully')
                  
                   
-               }
+        //        }
    
-           } catch (error) {
-               console.log(error.message)
-           }
+        //    } catch (error) {
+        //        console.log(error.message)
+        //    }
    
+   console.log(title,rating,stock,price,photo,selectedCategory || productData?.category)
    
+    }
    
-       }
+      const handleChangeCategory = (e) => {
+        setSelectedCategory(e.target.value)
+    }
     return (
         <div>
                    <Helmet>
@@ -81,8 +88,10 @@ const ProductUpdate = () => {
                            <div className="col-span-3 sm:col-span-3 flex flex-col">
                                <label htmlFor="category" className="font-medium">Category</label>
                         <select
-                             defaultValue={productData?.category}
-                                   className="select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full "
+                             value={selectedCategory || productData?.category}
+                            className="select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full "
+                            
+                            onChange={handleChangeCategory}
                                   
                                >
                                    <option disabled value="">Pick your category</option>
@@ -107,17 +116,7 @@ const ProductUpdate = () => {
                              defaultValue={productData?.rating}
                                    placeholder="rating" className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                            </div>
-                           <div className="col-span-3 sm:col-span-3 ">
-                               <label htmlFor="features" className="font-medium">Features</label>
-                               <div className="flex">
-                                   <input id="features" name="features" type="text"
-                                      
-                                       placeholder="Add some Features" className="w-3/4 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-                                   <button type="button"className="ml-2 p-2 bg-blue-500 text-white rounded-md w-1/4">Add</button>
-                               </div>
-       
-                           </div>
-       
+                          <br />
        
        
                            <div className="col-span-3 sm:col-span-3">
