@@ -24,7 +24,7 @@ const ProductUpdate = () => {
         setImgPrev(photo.name)
 
     }
-console.log(productData._id)
+
 
    
     
@@ -49,7 +49,7 @@ console.log(productData._id)
                const imgUrl = res.data.data.display_url;
                const updatedProductData = { title, rating, stock, price, description, imgUrl }
    
-               const updatedProduct = await axiosPublic.put(`/update-product/${productData._id}`, updatedProductData)
+               const updatedProduct = await axiosSecure.put(`/update-product/${productData._id}`, updatedProductData)
                if (updatedProduct.data.modifiedCount === 1) {
                    toast('product updated successfully')
                  
@@ -60,7 +60,7 @@ console.log(productData._id)
                console.log(error.message)
            }
    
-   console.log(title,rating,stock,price,photo,selectedCategory || productData?.category)
+   
    
     }
    
