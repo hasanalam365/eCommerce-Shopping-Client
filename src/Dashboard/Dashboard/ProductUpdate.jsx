@@ -24,7 +24,7 @@ const ProductUpdate = () => {
         setImgPrev(photo.name)
 
     }
-// console.log(productData)
+console.log(productData._id)
 
    
     
@@ -34,31 +34,31 @@ const ProductUpdate = () => {
            const title = form.title.value;
           
            const rating = form.rating.value;
-        //    const features = feature;
+       
            const stock = form.stock.value;
            const price = form.price.value;
            const description = form.description.value;
            const photo = form.photo.files[0];
    
-        //    try {
-        //        const formData = new FormData();
-        //        formData.append('image', photo);
-        //        const res = await axiosPublic.post(image_hosting_api, formData, {
-        //            headers: { 'Content-Type': 'multipart/form-data' }
-        //        });
-        //        const imgUrl = res.data.data.display_url;
-        //        const productData = { title, rating, stock, price, description, imgUrl }
+           try {
+               const formData = new FormData();
+               formData.append('image', photo);
+               const res = await axiosPublic.post(image_hosting_api, formData, {
+                   headers: { 'Content-Type': 'multipart/form-data' }
+               });
+               const imgUrl = res.data.data.display_url;
+               const updatedProductData = { title, rating, stock, price, description, imgUrl }
    
-        //        const addProduct = await axiosSecure.post('/add-product', productData)
-        //        if (addProduct.data.modifiedCount === 1) {
-        //            toast('product updated successfully')
+               const updatedProduct = await axiosPublic.put(`/update-product/${productData._id}`, updatedProductData)
+               if (updatedProduct.data.modifiedCount === 1) {
+                   toast('product updated successfully')
                  
                   
-        //        }
+               }
    
-        //    } catch (error) {
-        //        console.log(error.message)
-        //    }
+           } catch (error) {
+               console.log(error.message)
+           }
    
    console.log(title,rating,stock,price,photo,selectedCategory || productData?.category)
    
