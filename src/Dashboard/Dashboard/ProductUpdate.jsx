@@ -154,7 +154,7 @@ const ProductUpdate = () => {
                     </div> :
                         <div className='col-span-3 sm:col-span-3 flex  items-center gap-10'>
                                <div className=" text-red-600   w-1/2">
-                                   No file Select
+                                   No Photo Select
                         </div>
                         <div>
                         <img src={productData?.imgUrl}
