@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="bg-base-300">
             <footer className="grid md:grid-cols-3 lg:grid-cols-3  text-base-content p-10 gap-10">
                 <nav>
-                    {/* <h6 className="footer-title">Social</h6> */}
+                   
                     <Link to="/" className="">
                         <img className="w-[100px] h-[50px]" src="/logo.png" alt="" />
                     </Link>
@@ -43,7 +43,7 @@ const Footer = () => {
                         </a>
                         <a className="link link-hover">Blogs</a>
                         <a className="link link-hover">Categories</a>
-                        <a className="link link-hover">Service Center</a>
+                        
                     </div>
 
                 </nav>
