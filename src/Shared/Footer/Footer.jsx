@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                 </nav>
                 <nav className="">
-                    <h6 className="footer-title">Services</h6>
+                    <h6 className="footer-title">our Service </h6>
                     <div className="flex flex-col gap-2 ">
                         <a className="link link-hover">
                             <Link to='/brands'>Brands</Link>
