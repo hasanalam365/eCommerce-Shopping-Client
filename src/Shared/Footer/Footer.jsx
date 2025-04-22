@@ -40,6 +40,7 @@ const Footer = () => {
                     <div className="flex flex-col gap-2 ">
                         <a className="link link-hover">
                             <Link to='/brands'>Brands</Link>
+                            <Link to='/brands'>Brands</Link>
                         </a>
                         <a className="link link-hover">Blogs</a>
                         <a className="link link-hover">Categories</a>
